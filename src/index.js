@@ -1,6 +1,7 @@
 // Importação de Bibliotecas
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const cors = require('cors');
 
 // Instaciando bibliotecas
@@ -28,7 +29,8 @@ app.use(express.json({
 
 // Rotas de Acesso
 app.use('/', require('./routes/index')); // Rota de Apresentação
-app.use('*', require('./routes/index')); // Rota Inválida
+app.use('/users', require('./routes/users')); // Rotas de Usuários
+app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'profiles'))); // Rotas de Acesso a Arquivos Arquivos
 
 // Ponto de Acesso da Aplicação
 const URL = process.env.URL || "http://localhost";

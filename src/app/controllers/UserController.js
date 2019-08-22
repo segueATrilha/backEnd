@@ -60,7 +60,7 @@ module.exports = {
         // Criando a URL para acesso da imagem de perfil.
         if (req.file) {
             const { filename } = req.file;
-            image = `${process.env.URL || 'http://localhost'}:${process.env.PORT || 3001}/files/${filename}`
+            image = `${process.env.URL || 'http://localhost:3001'}/files/${filename}`
         }
 
         // Gerando hash da senha e salvando arquivos.
